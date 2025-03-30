@@ -4,10 +4,11 @@ import Main from "./pages/Main";
 import Header from "./components/Header";
 
 function App() {
+  const isLogin = true;
   return (
     <div className="App">
       <Router>
-        <Header />
+        <Header isLogin={isLogin} />
         <Routes>
           <Route path="/" element={<Main />} />
         </Routes>
