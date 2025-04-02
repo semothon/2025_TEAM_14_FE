@@ -1,0 +1,7 @@
+.sidebar {
+  width: 180px;
+  height: 621px;
+
+  /*변동요소*/
+  background-color: lightgray;
+}

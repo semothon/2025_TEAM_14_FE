@@ -1,0 +1,58 @@
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.auth-form-main {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 384px;
+  padding: 24px 12px;
+  border-radius: 20px;
+  margin-bottom: 24px;
+
+  /* 변동요소 */
+  background-color: #d9d9d9;
+}
+
+.auth-form-title {
+  font-size: 36px;
+  font-weight: 600;
+  margin-bottom: 48px;
+}
+
+.auth-form-input {
+  display: flex;
+  flex-direction: column;
+}
+
+.auth-form-button {
+  box-sizing: border-box;
+  width: 360px;
+  height: 48px;
+  margin-bottom: 12px;
+  border-radius: 20px;
+  border: none;
+  padding-left: 12px;
+  font-size: 24px;
+  color: white;
+  font-weight: 600;
+
+  /* 변동요소 */
+  background-color: #4c4c4c;
+}
+
+.auth-form-bottom-text {
+  /*문제 : 왼쪽으로 치우쳐 보임*/
+  display: flex;
+  gap: 20px;
+}
+
+.auth-form-bottom-text > * {
+  font-size: 20px;
+  text-decoration-line: none;
+  color: black;
+}
