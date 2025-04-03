@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "../styles/SignUp.css";
+import "../styles/pages/SignUp.css";
 import api from "../axiosConfig.js";
-import AuthForm from "../components/AuthForm";
+import AuthForm from "../components/common/AuthForm.jsx";
 import SignupLogo from "../assets/KHUoogle.png";
-import CustomInput from "../components/CustomInput";
+import CustomInput from "../components/common/CustomInput";
 import Select from "react-select";
-import EmailInput from "../components/EmailInput";
+import EmailInput from "../components/common/EmailInput";
 
 const SignUp = () => {
   const navigate = useNavigate();

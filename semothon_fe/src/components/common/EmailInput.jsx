@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import api from "../axiosConfig.js";
-import "../styles/EmailInput.css";
+import api from "../../axiosConfig.js";
+import "../../styles/common/EmailInput.css";
 
 const EmailInput = ({ value, onChange }) => {
   const [isChecking, setIsChecking] = useState(false);
@@ -56,7 +56,7 @@ const EmailInput = ({ value, onChange }) => {
         <button
           className="email-input-btn"
           onClick={handleCheck}
-          disabled={isChecking}
+          disabled={isChecking || isChecked}
         >
           {isChecking ? "확인 중" : isChecked ? "확인 완료" : "중복 확인"}
         </button>

@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "../styles/SignIn.css";
-import api from "../axiosConfig";
-import AuthForm from "../components/AuthForm";
+import "../styles/pages/SignIn.css";
+import api from "../axiosConfig.js";
+import AuthForm from "../components/common/AuthForm";
 import loginLogo from "../assets/KHUoogle.png";
-import CustomInput from "../components/CustomInput";
+import CustomInput from "../components/common/CustomInput";
 
 const SignIn = ({ setIsLogin }) => {
   const [email, setEmail] = useState("");
@@ -18,13 +18,14 @@ const SignIn = ({ setIsLogin }) => {
       const res = await api.post("/api/auth/login", { email, password });
 
       localStorage.setItem("isLogin", "true");
+      localStorage.setItem("userEmail", email);
       setIsLogin(true);
 
-      alert("로그인 성공"); // 나중에 지우기
+      alert("로그인 성공");
       navigate("/");
     } catch (error) {
-      console.log(error.response);
-      alert("로그인 실패"); // 나중에 변경
+      const message = error.response?.data || "로그인 실패";
+      alert(message);
     }
   };
 

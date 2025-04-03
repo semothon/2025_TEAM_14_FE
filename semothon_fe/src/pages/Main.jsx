@@ -1,8 +1,8 @@
-import React, { useState } from "react";
-import SideBar from "../components/SideBar";
-import SearchBar from "../components/SearchBar";
-import "../styles/Main.css";
-import axios from "axios";
+import React from "react";
+import SideBar from "../components/layout/SideBar";
+import SearchBar from "../components/layout/SearchBar";
+import mainLogo from "../assets/KHUoogle.png";
+import "../styles/pages/Main.css";
 
 const Main = () => {
   return (
@@ -11,7 +11,7 @@ const Main = () => {
         <SideBar />
       </div>
       <div className="layout-main">
-        <div className="main-logo">KHUUU</div>
+        <img src={mainLogo} className="main-logo" alt="MainImage" />
         <div className="search-input">
           <SearchBar />
         </div>

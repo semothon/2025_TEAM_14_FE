@@ -1,0 +1,53 @@
+header {
+  box-sizing: border-box;
+  padding: 12px 24px;
+  height: 60px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.user-menu-icon {
+  cursor: pointer;
+}
+
+.welcome-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.welcome-text > h1 {
+  margin: 0;
+  color: #fff;
+  font-family: Pretendard;
+  font-size: 28px;
+  font-weight: 700;
+  cursor: default;
+}
+
+.welcome-text > h2 {
+  margin: 0;
+  color: #fff;
+  font-family: Pretendard;
+  font-size: 20px;
+  font-weight: 400;
+  cursor: default;
+  margin-bottom: 24px;
+}
+
+.popover-item {
+  padding: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  margin-top: 24px;
+  color: white;
+}
+
+.popover-item > p {
+  margin: 0 0 0 24px;
+  font-size: 24px;
+  font-weight: 600;
+}
