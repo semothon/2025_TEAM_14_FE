@@ -3,18 +3,17 @@
   display: inline-block;
 }
 
-.popover-box {
+.user-popover {
   position: absolute;
   top: 100%;
-  right: 0;
-  margin-top: 8px;
-  width: 200px;
-  background-color: white;
-  border: 1px solid lightgray;
-  padding: 5px;
-  border-radius: 6px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  z-index: 10;
+  width: 360px;
+  height: 313px;
+  flex-shrink: 0;
+  transform: translateX(-92%);
+  border-radius: 20px;
+  background: var(--Or, linear-gradient(131deg, #a40e17 -6.92%, #ff8400 98.4%));
+  box-shadow: 31px 0px 31px 24px rgba(0, 0, 0, 0.25);
+  padding-bottom: 27px;
 }
 
 .popover-box::before {
