@@ -12,11 +12,10 @@
 }
 
 .modal {
-  width: 588px;
-  height: 624px;
+  width: 432px;
   background: linear-gradient(131deg, #a40e17 -6.92%, #ff8400 98.4%);
   border-radius: 20px;
-  padding: 24px;
+  padding: 24px 36px;
   box-sizing: border-box;
 }
 
@@ -24,6 +23,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 48px;
 }
 
 .modal-title {
@@ -31,4 +31,9 @@
   font-size: 28px;
   font-weight: 700;
   margin: 0;
+}
+
+.close-icon {
+  color: white;
+  cursor: pointer;
 }

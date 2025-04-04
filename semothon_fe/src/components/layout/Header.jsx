@@ -12,7 +12,6 @@ import {
 import { Popover } from "../popups/Popover";
 import { useState } from "react";
 import PopupController from "../popups/PopupController";
-import headerLogo from "../../assets/KHUoogle.png";
 
 const Header = ({ isLogin, setIsLogin }) => {
   const navigate = useNavigate();
@@ -56,14 +55,14 @@ const Header = ({ isLogin, setIsLogin }) => {
                 onClick={() => setPopupType("password")}
               >
                 <RiKey2Fill size={36} />
-                <p>비밀번호 변경</p>
+                <p>개인정보 변경</p>
               </div>
               <div
                 className="popover-item"
                 onClick={() => setPopupType("category")}
               >
                 <RiPushpinFill size={36} />
-                <p>카테고리 변경</p>
+                <p>카테고리 설정</p>
               </div>
               <div
                 className="popover-item"

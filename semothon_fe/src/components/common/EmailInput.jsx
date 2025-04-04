@@ -39,7 +39,7 @@ const EmailInput = ({ value, onChange }) => {
         <input
           className="email-input"
           type="email"
-          placeholder="이메일"
+          placeholder="E-mail 주소 입력"
           value={value}
           onChange={(e) => {
             onChange(e);
@@ -47,7 +47,7 @@ const EmailInput = ({ value, onChange }) => {
             const newValue = e.target.value;
             const isValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(newValue);
             if (!isValid && newValue !== "") {
-              setEmailError("올바른 이메일 형식을 입력해주세요.");
+              setEmailError("유효한 이메일을 입력해주세요.");
             } else {
               setEmailError("");
             }

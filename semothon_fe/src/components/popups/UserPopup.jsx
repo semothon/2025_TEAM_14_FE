@@ -24,9 +24,7 @@ const UserPopup = ({ title, children, onClose }) => {
       <div className="modal" ref={popupRef}>
         <div className="modal-header">
           <div className="modal-title">{title}</div>
-          <button className="close-button" onClick={onClose}>
-            <RiCloseFill />
-          </button>
+          <RiCloseFill className="close-icon" onClick={onClose} size={36} />
         </div>
         <div className="modal-body">{children}</div>
       </div>
