@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "../../styles/common/AuthForm.css";
-import SubmitButton from "./SubmitButton";
+import SubmitButton from "../ui/SubmitButton";
 
 const AuthForm = ({ title, onSubmit, children, buttonLabel, bottomTexts }) => {
   return (

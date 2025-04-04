@@ -1,7 +1,7 @@
 import React from "react";
-import EmailInput from "./EmailInput";
-import CustomInput from "./CustomInput";
-import CustomSelect from "./CustomSelect";
+import EmailInput from "../ui/EmailInput";
+import CustomInput from "../ui/CustomInput";
+import CustomSelect from "../ui/CustomSelect";
 import "../../styles/common/UserInfoForm.css";
 
 const UserInfoForm = ({ form, mode }) => {

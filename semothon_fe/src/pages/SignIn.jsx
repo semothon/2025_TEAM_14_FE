@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/pages/SignIn.css";
 import api from "../axiosConfig.js";
-import AuthForm from "../components/common/AuthForm";
+import AuthForm from "../components/form/AuthForm.jsx";
 import loginLogo from "../assets/KHUoogle.png";
-import CustomInput from "../components/common/CustomInput";
+import CustomInput from "../components/ui/CustomInput.jsx";
 
 const SignIn = ({ setIsLogin }) => {
   const [email, setEmail] = useState("");

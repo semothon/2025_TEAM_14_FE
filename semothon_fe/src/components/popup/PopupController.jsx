@@ -1,8 +1,8 @@
 import React from "react";
 import UserPopup from "./UserPopup";
 import useUserForm from "../hooks/useUserForm.js";
-import UserInfoForm from "../common/UserInfoForm.jsx";
-import SubmitButton from "../common/SubmitButton.jsx";
+import UserInfoForm from "../form/UserInfoForm.jsx";
+import SubmitButton from "../ui/SubmitButton.jsx";
 import api from "../../axiosConfig.js";
 
 const PopupController = ({ popupType, onClose }) => {

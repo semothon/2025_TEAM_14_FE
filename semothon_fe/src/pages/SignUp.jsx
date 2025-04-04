@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/pages/SignUp.css";
 import api from "../axiosConfig.js";
-import AuthForm from "../components/common/AuthForm.jsx";
+import AuthForm from "../components/form/AuthForm.jsx";
 import SignupLogo from "../assets/KHUoogle.png";
 import useUserForm from "../components/hooks/useUserForm.js";
-import UserInfoForm from "../components/common/UserInfoForm.jsx";
+import UserInfoForm from "../components/form/UserInfoForm.jsx";
 
 const SignUp = () => {
   const navigate = useNavigate();
