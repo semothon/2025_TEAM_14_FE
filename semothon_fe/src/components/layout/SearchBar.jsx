@@ -3,7 +3,7 @@ import { RiSearchLine } from "react-icons/ri";
 import { useNavigate } from "react-router-dom";
 import "../../styles/layout/SearchBar.css";
 
-const SearchBar = ({ className = "", iconColor }) => {
+const SearchBar = ({ className = "", iconColor, textColor = "#000" }) => {
   const [query, setQuery] = useState("");
   const navigate = useNavigate();
 
@@ -25,6 +25,7 @@ const SearchBar = ({ className = "", iconColor }) => {
         type="text"
         value={query}
         onChange={(e) => setQuery(e.target.value)}
+        style={{ color: textColor }}
         onKeyDown={handleKeyDown}
       />
       <RiSearchLine

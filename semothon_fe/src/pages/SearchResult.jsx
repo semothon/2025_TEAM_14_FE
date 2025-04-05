@@ -6,6 +6,7 @@ import groupByKeyword from "../data/groupByKeyword.js";
 import PaginatedResult from "../components/ui/PaginatedResult.jsx";
 import CategoryTab from "../components/ui/CategoryTab.jsx";
 import api from "../axiosConfig.js";
+import SideBar from "../components/layout/SideBar.jsx";
 
 const SearchResult = () => {
   const location = useLocation();
@@ -48,14 +49,20 @@ const SearchResult = () => {
         const res = await api.get("/api/search", {
           params: { keyword: query },
         });
+        console.log("✅ 받은 데이터:", res.data);
 
         if (Array.isArray(res.data)) {
-          const tagged = res.data.map((r) => ({
-            ...r,
+          const transformed = res.data.map((r) => ({
+            ...r.stackEntry,
+            keyword: r.keyword || "기타",
             cachedQuery: query,
           }));
-          setResults(tagged);
-          sessionStorage.setItem("searchResults", JSON.stringify(tagged));
+          const deduped = Array.from(
+            new Map(transformed.map((item) => [item.url, item])).values()
+          );
+
+          setResults(deduped);
+          sessionStorage.setItem("searchResults", JSON.stringify(deduped));
         } else {
           console.warn("예상치 못한 응답:", res.data);
           setResults([]);
@@ -72,13 +79,9 @@ const SearchResult = () => {
   }, [query]);
 
   const resultByCategory = useMemo(() => {
-    const all = results.map((r) => ({
-      ...r,
-      keyword: r.keywords[0] || "기타",
-    }));
     return {
-      전체: all,
-      ...groupByKeyword(all),
+      전체: results,
+      ...groupByKeyword(results),
     };
   }, [results]);
 
@@ -87,21 +90,32 @@ const SearchResult = () => {
   return (
     <div className="search-result">
       <SearchBar className="search-result-input" iconColor="#a40e17" />
-      {results.length === 0 ? (
-        <div>
-          <p>검색 결과가 없습니다.</p>
-        </div>
-      ) : (
-        <>
-          <div className="search-scrollable-category">
-            <CategoryTab
-              categories={Object.keys(resultByCategory)}
-              onChange={(category) => setActiveCategory(category)}
-            />
+      <div className="search-result-main">
+        <SideBar />
+        {results.length === 0 ? (
+          <div className="no-result">
+            <p className="no-result-title">
+              <span style={{ color: "#0A326F" }}>{query}</span>에 대한 검색
+              결과가 없습니다.
+            </p>
+            <ul className="no-result-list">
+              <li>입력한 단어의 철자나 띄어쓰기가 정확한지 확인해 보세요.</li>
+              <li>보다 일반적인 단어로 검색해 보세요.</li>
+              <li>단어의 개수를 줄여 보세요.</li>
+            </ul>
           </div>
-          <PaginatedResult items={filteredItems} />
-        </>
-      )}
+        ) : (
+          <>
+            <div className="search-scrollable-category">
+              <CategoryTab
+                categories={Object.keys(resultByCategory)}
+                onChange={(category) => setActiveCategory(category)}
+              />
+              <PaginatedResult items={filteredItems} />
+            </div>
+          </>
+        )}
+      </div>
     </div>
   );
 };

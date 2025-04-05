@@ -7,7 +7,7 @@ const groupByKeyword = (results) => {
     let matchedCategory = null;
 
     for (const [category, keywords] of Object.entries(allCategories)) {
-      if (result.keywords.some((kw) => keywords.includes(kw))) {
+      if (keywords.includes(result.keyword)) {
         matchedCategory = category;
         break;
       }
