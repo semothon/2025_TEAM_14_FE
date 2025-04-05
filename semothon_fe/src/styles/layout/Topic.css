@@ -1,0 +1,40 @@
+/* src/styles/layout/Topic.css */
+
+.topic-tag {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 120px;
+    height: 36px;
+    flex-shrink: 0;
+    border-radius: 999px; /* 완전히 둥글게 */
+    border: 1px solid #e04b00;
+    font-family: Pretendard;
+    font-size: 24px;
+    font-weight: 400;
+    background-color: white;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  
+    background: linear-gradient(#a40e17 -6.92%, #ff8400 98.4%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  /* 호버 시 배경 */
+  .topic-tag:hover {
+    background-color: #ffe7d0;
+    -webkit-text-fill-color: initial;
+    color: #e04b00;
+  }
+  
+  /* 토픽들을 묶는 컨테이너 */
+  .topic-container {
+    margin-top: 48px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 48px; 
+  }
+  
