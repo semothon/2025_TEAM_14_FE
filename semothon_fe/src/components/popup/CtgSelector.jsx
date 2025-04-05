@@ -4,6 +4,7 @@ import SubmitButton from "../ui/SubmitButton.jsx";
 import { RiRestartLine } from "react-icons/ri";
 
 const CtgSelector = () => {
+  /*
   const [search, setSearch] = useState("");
   const [selected, setSelected] = useState([]);
 
@@ -75,6 +76,7 @@ const CtgSelector = () => {
       </div>
     </div>
   );
+  */
 };
 
 export default CtgSelector;

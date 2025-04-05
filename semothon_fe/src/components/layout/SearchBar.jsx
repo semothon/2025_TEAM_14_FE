@@ -1,16 +1,16 @@
 import React, { useState } from "react";
 import { RiSearchLine } from "react-icons/ri";
 import { useNavigate } from "react-router-dom";
+import "../../styles/layout/SearchBar.css";
 
-const SearchBar = () => {
+const SearchBar = ({ className = "", iconColor }) => {
   const [query, setQuery] = useState("");
   const navigate = useNavigate();
 
   const handleSearch = () => {
     if (query.trim()) {
-      navigate(`/search-result?query=${query}`);
+      navigate(`/search-result?query=${query.trim()}`);
     }
-    navigate("/search-result");
   };
 
   const handleKeyDown = (e) => {
@@ -20,15 +20,19 @@ const SearchBar = () => {
   };
 
   return (
-    <div className="search-bar">
+    <div className={`search-bar ${className}`}>
       <input
         type="text"
-        className="search-input"
         value={query}
         onChange={(e) => setQuery(e.target.value)}
         onKeyDown={handleKeyDown}
       />
-      <RiSearchLine className="search-idon" size={36} onClick={handleSearch} />
+      <RiSearchLine
+        className="search-button"
+        size={36}
+        color={iconColor}
+        onClick={handleSearch}
+      />
     </div>
   );
 };

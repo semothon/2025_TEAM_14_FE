@@ -12,9 +12,7 @@ const Main = () => {
       </div>
       <div className="layout-main">
         <img src={mainLogo} className="main-logo" alt="MainImage" />
-        <div className="search-input">
-          <SearchBar />
-        </div>
+        <SearchBar className="search-input" iconColor="#fff" />
       </div>
     </div>
   );

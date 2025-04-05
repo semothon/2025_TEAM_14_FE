@@ -13,7 +13,7 @@ const PopupController = ({ popupType, onClose }) => {
   let title = "";
   let content = null;
 
-  const handelUpdateUser = async (e) => {
+  const handleUpdateUser = async (e) => {
     e.preventDefault();
 
     const {
@@ -55,7 +55,7 @@ const PopupController = ({ popupType, onClose }) => {
       content = (
         <>
           <UserInfoForm form={form} mode="edit" />
-          <SubmitButton label="저장" onClick={handelUpdateUser} />
+          <SubmitButton label="저장" onClick={handleUpdateUser} />
         </>
       );
       break;
