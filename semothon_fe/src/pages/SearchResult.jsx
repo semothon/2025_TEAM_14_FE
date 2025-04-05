@@ -24,19 +24,44 @@ const SearchResult = () => {
   useEffect(() => {
     if (!query) return;
 
+    const cached = sessionStorage.getItem("searchResults");
+    let shouldFetch = true;
+
+    if (cached) {
+      try {
+        const parsed = JSON.parse(cached);
+        if (
+          Array.isArray(parsed) &&
+          parsed.length > 0 &&
+          parsed[0]?.cachedQuery === query
+        ) {
+          setResults(parsed);
+          shouldFetch = false;
+        }
+      } catch (e) {
+        console.warn("세션 캐시 파싱 실패", e);
+      }
+    }
+
     const fetchData = async () => {
       try {
         const res = await api.get("/api/search", {
           params: { keyword: query },
         });
         if (Array.isArray(res.data)) {
-          setResults(res.data);
+          const tagged = res.data.map((r) => ({
+            ...r,
+            cachedQuery: query,
+          }));
+          setResults(tagged);
+          sessionStorage.setItem("searchResults", JSON.stringify(res.data));
         } else {
-          console.warn("❗예상치 못한 응답:", res.data);
-          setResults([]); // 빈 배열로 처리
+          console.warn("예상치 못한 응답:", res.data);
+          setResults([]);
         }
       } catch (error) {
         console.log("검색 중 오류 발생", error);
+        setResults([]);
       }
     };
 
@@ -59,15 +84,12 @@ const SearchResult = () => {
   return (
     <div className="search-result">
       <SearchBar className="search-result-input" iconColor="#a40e17" />
-      <h1>검색 결과</h1>
-
       {results.length === 0 ? (
         <div>
           <p>검색 결과가 없습니다.</p>
         </div>
       ) : (
         <>
-          <div>{query && <p>"{query}"에 대한 검색 결과</p>}</div>
           <div className="search-scrollable-category">
             <CategoryTab
               categories={Object.keys(resultByCategory)}

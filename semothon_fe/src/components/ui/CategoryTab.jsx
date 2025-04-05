@@ -1,4 +1,5 @@
 import React, { useMemo, useState } from "react";
+import "../../styles/ui/CategoryTab.css";
 
 const CategoryTab = ({ categories, onChange }) => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -18,7 +19,7 @@ const CategoryTab = ({ categories, onChange }) => {
   };
 
   return (
-    <div>
+    <div className="scrollable-category">
       {sortedCategories.map((category, idx) => (
         <button
           key={category}
