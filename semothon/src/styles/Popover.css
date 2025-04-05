@@ -1,0 +1,27 @@
+.popover-container {
+  position: relative;
+  display: inline-block;
+}
+
+.user-popover {
+  position: absolute;
+  top: 100%;
+  width: 360px;
+  height: 313px;
+  flex-shrink: 0;
+  transform: translateX(-92%);
+  border-radius: 20px;
+  background: var(--Or, linear-gradient(131deg, #a40e17 -6.92%, #ff8400 98.4%));
+  box-shadow: 31px 0px 31px 24px rgba(0, 0, 0, 0.25);
+  padding-bottom: 27px;
+}
+
+.popover-box::before {
+  content: "";
+  position: absolute;
+  top: -8px;
+  right: 12px;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 8px solid white;
+}

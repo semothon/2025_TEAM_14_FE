@@ -1,0 +1,84 @@
+header {
+  box-sizing: border-box;
+  padding: 12px 24px;
+  height: 60px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  /* 변동 요소 */
+}
+
+.header-logo {
+  margin: 0;
+  width: 156px;
+  height: 36px;
+  font-size: 24px;
+  color: white;
+}
+
+.mypage-icon {
+  display: flex;
+  width: 36px;
+  height: 36px;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  aspect-ratio: 1/1;
+}
+.user-menu {
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+}
+
+.popover-box .welcome-text {
+  color: #fff;
+  font-family: Pretendard;
+  font-size: 28px;
+  font-weight: 700;
+  margin: 24px 0px 4px 24px;
+  cursor: default;
+}
+
+.popover-box .user-email {
+  color: #fff;
+  font-family: Pretendard;
+  font-size: 20px;
+  font-weight: 400;
+  margin-left: 24px;
+  cursor: default;
+}
+
+.popover-box {
+  padding-bottom: 27px;
+  cursor: default;
+}
+.popover-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 31px;
+  margin-top: 52px;
+}
+
+.action {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-left: 24px;
+  cursor: pointer;
+}
+
+.action-icon {
+  width: 36px;
+  height: 36px;
+}
+
+.action-label {
+  color: white;
+  font-size: 24px;
+  font-weight: 600;
+  font-family: Pretendard;
+  margin: 0;
+}
