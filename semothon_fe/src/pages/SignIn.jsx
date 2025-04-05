@@ -43,7 +43,7 @@ const SignIn = ({ setIsLogin }) => {
         onClick={goToMain}
       />
       <AuthForm
-        title="Sign In"
+        title="로그인"
         buttonLabel="로그인"
         onSubmit={handelLogin}
         bottomTexts={[

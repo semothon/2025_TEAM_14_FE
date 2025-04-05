@@ -62,7 +62,7 @@ const SignUp = () => {
         alt="loginImage"
         onClick={goToMain}
       />
-      <AuthForm title="Sign Up" buttonLabel="회원가입" onSubmit={handleSignUp}>
+      <AuthForm title="회원가입" buttonLabel="회원가입" onSubmit={handleSignUp}>
         <UserInfoForm form={form} mode="signup" />
       </AuthForm>
     </div>
