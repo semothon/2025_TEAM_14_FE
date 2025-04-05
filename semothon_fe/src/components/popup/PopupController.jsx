@@ -1,9 +1,10 @@
 import React from "react";
-import UserPopup from "./UserPopup";
+import UserPopup from "./UserPopup.jsx";
 import useUserForm from "../hooks/useUserForm.js";
 import UserInfoForm from "../form/UserInfoForm.jsx";
 import SubmitButton from "../ui/SubmitButton.jsx";
 import api from "../../axiosConfig.js";
+import CtgSelector from "./CtgSelector.jsx";
 
 const PopupController = ({ popupType, onClose }) => {
   const form = useUserForm();
@@ -60,7 +61,7 @@ const PopupController = ({ popupType, onClose }) => {
       break;
     case "category":
       title = "카테고리 설정";
-      content = <div>카테고리카테고리리</div>;
+      content = <CtgSelector />;
       break;
     case "recommend":
       title = "추천 탭";

@@ -9,9 +9,9 @@ import {
   RiKey2Fill,
   RiPushpinFill,
 } from "react-icons/ri";
-import { Popover } from "../popups/Popover";
+import { Popover } from "../popup/Popover";
 import { useState } from "react";
-import PopupController from "../popups/PopupController";
+import PopupController from "../popup/PopupController";
 
 const Header = ({ isLogin, setIsLogin }) => {
   const navigate = useNavigate();

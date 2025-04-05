@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react";
-import "../../styles/popups/Popover.css";
+import "../../styles/popup/Popover.css";
 
 export function Popover({ trigger, children, popupType }) {
   const [open, setOpen] = useState(false);

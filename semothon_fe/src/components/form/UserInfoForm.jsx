@@ -2,7 +2,7 @@ import React from "react";
 import EmailInput from "../ui/EmailInput";
 import CustomInput from "../ui/CustomInput";
 import CustomSelect from "../ui/CustomSelect";
-import "../../styles/common/UserInfoForm.css";
+import "../../styles/form/UserInfoForm.css";
 
 const UserInfoForm = ({ form, mode }) => {
   const storedEmail = localStorage.getItem("userEmail");

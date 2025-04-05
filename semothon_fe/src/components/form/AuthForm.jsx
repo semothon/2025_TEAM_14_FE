@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "../../styles/common/AuthForm.css";
+import "../../styles/form/AuthForm.css";
 import SubmitButton from "../ui/SubmitButton";
 
 const AuthForm = ({ title, onSubmit, children, buttonLabel, bottomTexts }) => {
@@ -9,7 +9,7 @@ const AuthForm = ({ title, onSubmit, children, buttonLabel, bottomTexts }) => {
       <div className="auth-form-main">
         <div className="auth-form-title">{title}</div>
         <div className="auth-form-input">{children}</div>
-        <SubmitButton type="submit">{buttonLabel}</SubmitButton>
+        <SubmitButton type="submit" label={buttonLabel} />
       </div>
       <div className="auth-form-bottom-text">
         {bottomTexts?.map((item, index) => (

@@ -1,5 +1,5 @@
 import React from "react";
-import "../../styles/common/CustomInput.css";
+import "../../styles/ui/CustomInput.css";
 
 const CustomInput = ({
   type,

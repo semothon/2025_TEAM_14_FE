@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import api from "../../axiosConfig.js";
-import "../../styles/common/EmailInput.css";
+import "../../styles/ui/EmailInput.css";
 
 const EmailInput = ({ value, onChange }) => {
   const [isChecking, setIsChecking] = useState(false);

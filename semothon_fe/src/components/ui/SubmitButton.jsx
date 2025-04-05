@@ -1,5 +1,5 @@
 import React from "react";
-import "../../styles/common/SubmitButton.css";
+import "../../styles/ui/SubmitButton.css";
 
 const SubmitButton = ({ label, type = "button", onClick, className = "" }) => {
   return (

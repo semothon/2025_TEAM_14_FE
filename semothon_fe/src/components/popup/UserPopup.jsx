@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from "react";
 import { RiCloseFill } from "react-icons/ri";
-import "../../styles/popups/UserPopup.css";
+import "../../styles/popup/UserPopup.css";
 
 const UserPopup = ({ title, children, onClose }) => {
   const popupRef = useRef();
