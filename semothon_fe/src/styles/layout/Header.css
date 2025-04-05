@@ -51,3 +51,16 @@ header {
   font-size: 24px;
   font-weight: 600;
 }
+/* 🔹 검색결과 페이지에서만 보여질 왼쪽 로고 버튼 스타일 */
+.khu-logo-img {
+  width: 95.752px;       
+  height: 28px;          
+  flex-shrink: 0;          
+  aspect-ratio: 95.75 / 28;
+}
+.logo-button {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  margin-right: auto; /* 왼쪽으로 정렬 */
+}

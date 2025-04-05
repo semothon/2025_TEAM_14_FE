@@ -1,4 +1,5 @@
 import "../../styles/layout/Header.css";
+import KHUImage from "../../assets/KHU.png";
 import { useLocation, useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import {
@@ -15,14 +16,14 @@ import PopupController from "../popup/PopupController";
 
 const Header = ({ isLogin, setIsLogin }) => {
   const navigate = useNavigate();
-  const locationNow = useLocation();
+  const locationNow = useLocation(); // 현재 페이지 위치 확인
   const userEmail = localStorage.getItem("userEmail");
   const [popupType, setPopupType] = useState("");
 
+  // 로그인/회원가입 페이지에서는 헤더 숨기기
   if (locationNow.pathname === "/login" || locationNow.pathname === "/signup")
     return null;
 
-  // 로그아웃
   const handleLogout = () => {
     localStorage.removeItem("isLogin");
     localStorage.removeItem("userEmail");
@@ -32,6 +33,13 @@ const Header = ({ isLogin, setIsLogin }) => {
 
   return (
     <header>
+      {locationNow.pathname.startsWith("/search") && (
+  <div className="logo-button" onClick={() => navigate("/")}>
+    <img src={KHUImage} alt="KHU 로고" className="khu-logo-img" />
+  </div>
+)}
+
+      {/* 🔹 비로그인 상태의 메뉴 */}
       {!isLogin ? (
         <div className="guest-menu">
           <Link to="/signup">회원가입</Link>
