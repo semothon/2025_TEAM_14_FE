@@ -12,12 +12,14 @@ import {
 import { Popover } from "../popup/Popover";
 import { useState } from "react";
 import PopupController from "../popup/PopupController";
+import RemoveIDModal from "../popup/RemoveIDModal";
 
 const Header = ({ isLogin, setIsLogin }) => {
   const navigate = useNavigate();
   const locationNow = useLocation();
   const userEmail = localStorage.getItem("userEmail");
   const [popupType, setPopupType] = useState("");
+  const [showLogoutModal, setShowLogoutModal] = useState(false);
 
   if (locationNow.pathname === "/login" || locationNow.pathname === "/signup")
     return null;
@@ -31,13 +33,14 @@ const Header = ({ isLogin, setIsLogin }) => {
   };
 
   return (
-    <header>
-      {!isLogin ? (
+    <>
+      <header>
+        /*!isLogin ? (
         <div className="guest-menu">
           <Link to="/signup">회원가입</Link>
           <Link to="/login">로그인</Link>
         </div>
-      ) : (
+        ) :*/{" "}
         <div className="user-menu">
           <Popover
             trigger={
@@ -71,7 +74,10 @@ const Header = ({ isLogin, setIsLogin }) => {
                 <RiThumbUpFill size={36} />
                 <p>추천 탭</p>
               </div>
-              <div className="popover-item" onClick={handleLogout}>
+              <div
+                className="popover-item"
+                onClick={() => setShowLogoutModal(true)}
+              >
                 <RiLogoutBoxFill size={36} />
                 <p>로그아웃</p>
               </div>
@@ -82,8 +88,18 @@ const Header = ({ isLogin, setIsLogin }) => {
             onClose={() => setPopupType(null)}
           />
         </div>
+      </header>
+
+      {showLogoutModal && (
+        <RemoveIDModal
+          onClose={() => setShowLogoutModal(false)}
+          onConfirm={() => {
+            handleLogout(); // 실제 로그아웃 처리
+            setShowLogoutModal(false); // 모달 닫기
+          }}
+        />
       )}
-    </header>
+    </>
   );
 };
 

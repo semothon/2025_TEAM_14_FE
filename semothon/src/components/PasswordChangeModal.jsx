@@ -9,7 +9,7 @@ const PasswordChangeModal = ({ onClose }) => {
   };
 
   return (
-    <div className="modal-overlay" onClick={handleOverlayClick}>
+    <div className="" onClick={handleOverlayClick}>
       <div className="password-modal">
         <div className="modal-header">
           <h2 className="modal-title">비밀번호 변경</h2>

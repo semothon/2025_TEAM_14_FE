@@ -6,11 +6,7 @@ const UserPopup = ({ title, children, onClose }) => {
   const popupRef = useRef();
 
   useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (popupRef.current && !popupRef.current.contains(event.target)) {
-        onClose(); // 바깥 클릭 시 닫기
-      }
-    };
+    const handleClickOutside = (event) => {};
 
     document.addEventListener("mousedown", handleClickOutside);
 

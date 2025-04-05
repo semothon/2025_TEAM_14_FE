@@ -64,9 +64,7 @@ const PopupController = ({ popupType, onClose }) => {
       content = <CtgSelector />;
       break;
     case "recommend":
-      title = "추천 탭";
-      content = <div>추천추천</div>;
-      break;
+      return <div>추천추천</div>;
     default:
       return null;
   }

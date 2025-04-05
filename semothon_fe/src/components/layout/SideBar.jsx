@@ -85,7 +85,7 @@ const subCategories = {
     "프로그램",
   ],
   학교생활: [
-    "개회",
+    "개최",
     "기숙사",
     "동아리",
     "모집",
@@ -104,10 +104,11 @@ const subCategories = {
     "정경대학",
     "경영대학",
     "호텔관광대학",
-    "의과대학",
+    "이과대학",
     "생활과학대학",
+    "의과대학",
+    "한의과대학",
     "치과대학",
-    "치의과대학",
     "약학대학",
     "간호과학대학",
     "음악대학",
@@ -131,14 +132,16 @@ const SideBar = () => {
   const [active, setActive] = useState("장학·행정");
   const categoryRefs = useRef({}); // 각 항목 ref 저장용
   const [subTop, setSubTop] = useState(0); // 세부 카테고리 top 위치
+  const [hoverCategory, setHoverCategory] = useState(null);
+  const currentCategory = hoverCategory || active;
 
   useEffect(() => {
-    const ref = categoryRefs.current[active];
+    const ref = categoryRefs.current[currentCategory];
     if (ref) {
       const { offsetTop } = ref;
       setSubTop(offsetTop);
     }
-  }, [active]);
+  }, [currentCategory]);
 
   return (
     <div className="sidebar-container">
@@ -147,15 +150,20 @@ const SideBar = () => {
         {categories.map((ctg) => (
           <div
             key={ctg}
-            className={`main-category-item ${active === ctg ? "active" : ""}`}
+            className={`main-category-item ${
+              active === ctg || hoverCategory === ctg ? "active" : ""
+            }`}
             onClick={() => setActive(ctg)}
+            onMouseEnter={() => setHoverCategory(ctg)} // 마우스 올라가면 세부 보여줌
+            onMouseLeave={() => setHoverCategory(null)} // 마우스 벗어나면 숨김
             ref={(el) => (categoryRefs.current[ctg] = el)}
           >
             {ctg}
           </div>
         ))}
       </div>
-      {subCategories[active] && (
+      +{" "}
+      {subCategories[currentCategory] && (
         <div className="sub-category-panel" style={{ top: subTop }}>
           <div className="sub-category-columns">
             <div className="column">

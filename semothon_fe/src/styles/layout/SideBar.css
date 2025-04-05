@@ -73,6 +73,8 @@
 .column {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   gap: 12px;
   flex: 1;
 }
@@ -83,4 +85,14 @@
   font-weight: 500;
   font-size: 16px;
   color: #000000;
+}
+.column + .column::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 24px;
+  bottom: 24px;
+  width: 1px;
+  background-color: #fff;
+  transform: translateX(-50%);
 }
