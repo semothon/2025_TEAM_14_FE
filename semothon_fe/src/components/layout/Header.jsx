@@ -76,13 +76,6 @@ const Header = ({ isLogin, setIsLogin }) => {
                   <RiPushpinFill size={36} />
                   <p>카테고리 설정</p>
                 </div>
-                <div
-                  className="popover-item"
-                  onClick={() => setPopupType("recommend")}
-                >
-                  <RiThumbUpFill size={36} />
-                  <p>추천 탭</p>
-                </div>
                 <div className="popover-item" onClick={handleLogout}>
                   <RiLogoutBoxFill size={36} />
                   <p>로그아웃</p>

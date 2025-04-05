@@ -1,12 +1,16 @@
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
 import allCategories from "../../data/categories.js";
 import SubmitButton from "../ui/SubmitButton.jsx";
 import { RiRestartLine } from "react-icons/ri";
+import { RiSearchLine } from "react-icons/ri";
+
+import "../../styles/popup/CtgSelector.css";
 
 const CtgSelector = () => {
-  /*
   const [search, setSearch] = useState("");
   const [selected, setSelected] = useState([]);
+
+  const allKeywords = useMemo(() => Object.values(allCategories).flat(), []);
 
   const handleKeydown = (e) => {
     if (e.key === "Enter") {
@@ -15,10 +19,8 @@ const CtgSelector = () => {
 
       if (!input) return;
 
-      const matchedCategory = allCategories.find((ctg) => ctg === input);
-
-      if (matchedCategory && !selected.includes(matchedCategory)) {
-        setSelected([...selected, matchedCategory]);
+      if (allKeywords.includes(input) && !selected.includes(input)) {
+        setSelected((prev) => [...prev, input]);
       }
 
       setSearch("");
@@ -33,50 +35,60 @@ const CtgSelector = () => {
       prev.includes(ctg) ? prev.filter((item) => item !== ctg) : [...prev, ctg]
     );
   };
+
   const handleSave = () => {};
   const handleReset = () => setSelected([]);
-
-  const filtered = allCategories.filter((ctg) => ctg.includes(search));
+  const filtered = allKeywords.filter((kw) =>
+    kw.toLowerCase().includes(search.toLowerCase())
+  );
 
   return (
-    <div className="category-selector">
-      <div className="selected-tags">
-        {selected.map((ctg) => (
-          <span key={ctg} className="tag">
-            {ctg}
-            <button className="remove-btn" onClick={() => handleRemove(ctg)}>
-              ×
-            </button>
-          </span>
-        ))}
-        <input
-          type="text"
-          placeholder="검색할 카테고리 입력"
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-          onKeyDown={handleKeydown}
-        />
+    <div className="ctg-selector">
+      <div className="ctg-wrapper">
+        <div className="ctg-content">
+          {selected.map((ctg) => (
+            <div
+              key={ctg}
+              className="tag-chip"
+              onClick={() => handleToggle(ctg)}
+            >
+              {ctg}
+            </div>
+          ))}
+          <input
+            className="ctg-input"
+            placeholder={selected.length === 0 ? "검색할 카테고리 입력" : ""}
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+          />
+        </div>
+        <div className="ctg-icon-wrapper">
+          <RiSearchLine className="search-icon" />
+        </div>
       </div>
-      <div className="category-list">
+
+      <div className="ctg-list">
         {filtered.map((ctg) => (
           <button
             key={ctg}
-            className={`category-item ${
-              selected.includes(ctg) ? "selected" : ""
-            }`}
+            className={`ctg-item ${selected.includes(ctg) ? "selected" : ""}`}
             onClick={() => handleToggle(ctg)}
           >
             {ctg}
           </button>
         ))}
       </div>
+
       <div className="ctg-selector-footer">
-        <RiRestartLine className="reset-button" onClick={handleReset} />
-        <SubmitButton type="button" onClick={handleSave} />
+        <button className="reset-button" onClick={handleReset}>
+          <RiRestartLine size={36} />
+        </button>
+        <button className="save-button" onClick={handleSave}>
+          저장
+        </button>
       </div>
     </div>
   );
-  */
 };
 
 export default CtgSelector;
