@@ -23,7 +23,7 @@ const Header = ({ isLogin, setIsLogin }) => {
     return null;
 
   // 로그아웃
-  const handelLogout = () => {
+  const handleLogout = () => {
     localStorage.removeItem("isLogin");
     localStorage.removeItem("userEmail");
     setIsLogin(false);
@@ -71,7 +71,7 @@ const Header = ({ isLogin, setIsLogin }) => {
                 <RiThumbUpFill size={36} />
                 <p>추천 탭</p>
               </div>
-              <div className="popover-item" onClick={handelLogout}>
+              <div className="popover-item" onClick={handleLogout}>
                 <RiLogoutBoxFill size={36} />
                 <p>로그아웃</p>
               </div>

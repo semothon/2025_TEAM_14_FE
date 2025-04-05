@@ -7,7 +7,7 @@ const CtgSelector = () => {
   const [search, setSearch] = useState("");
   const [selected, setSelected] = useState([]);
 
-  const handelKeydown = (e) => {
+  const handleKeydown = (e) => {
     if (e.key === "Enter") {
       e.preventDefault();
       const input = search.trim();
@@ -53,7 +53,7 @@ const CtgSelector = () => {
           placeholder="검색할 카테고리 입력"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          onKeyDown={handelKeydown}
+          onKeyDown={handleKeydown}
         />
       </div>
       <div className="category-list">

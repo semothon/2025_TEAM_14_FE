@@ -6,6 +6,7 @@ import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
 import { useState, useEffect } from "react";
 import api from "./axiosConfig.js";
+import SearchResult from "./pages/SearchResult.jsx";
 
 function App() {
   const [isLogin, setIsLogin] = useState(false);
@@ -40,6 +41,7 @@ function App() {
           <Route path="/" element={<Main />} />
           <Route path="/login" element={<SignIn setIsLogin={setIsLogin} />} />
           <Route path="/signup" element={<SignUp />} />
+          <Route path="/search-result" element={<SearchResult />} />
         </Routes>
       </Router>
     </div>
