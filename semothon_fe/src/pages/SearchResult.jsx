@@ -29,7 +29,12 @@ const SearchResult = () => {
         const res = await api.get("/api/search", {
           params: { keyword: query },
         });
-        setResults(res.data);
+        if (Array.isArray(res.data)) {
+          setResults(res.data);
+        } else {
+          console.warn("❗예상치 못한 응답:", res.data);
+          setResults([]); // 빈 배열로 처리
+        }
       } catch (error) {
         console.log("검색 중 오류 발생", error);
       }
@@ -41,7 +46,7 @@ const SearchResult = () => {
   const resultByCategory = useMemo(() => {
     const all = results.map((r) => ({
       ...r,
-      keyword: r.keywords[0] || "기타", // 첫 번째 키워드 기준 (필요 시 보완)
+      keyword: r.keywords[0] || "기타",
     }));
     return {
       전체: all,
@@ -54,17 +59,24 @@ const SearchResult = () => {
   return (
     <div className="search-result">
       <SearchBar className="search-result-input" iconColor="#a40e17" />
-      <div>
-        <h1>검색 결과</h1>
-        {query ? <p>"{query}"에 대한 검색 결과</p> : <></>}
-      </div>
-      <div className="search-scrollable-category">
-        <CategoryTab
-          categories={Object.keys(resultByCategory)}
-          onChange={(category) => setActiveCategory(category)}
-        />
-      </div>
-      <PaginatedResult items={filteredItems} />
+      <h1>검색 결과</h1>
+
+      {results.length === 0 ? (
+        <div>
+          <p>검색 결과가 없습니다.</p>
+        </div>
+      ) : (
+        <>
+          <div>{query && <p>"{query}"에 대한 검색 결과</p>}</div>
+          <div className="search-scrollable-category">
+            <CategoryTab
+              categories={Object.keys(resultByCategory)}
+              onChange={(category) => setActiveCategory(category)}
+            />
+          </div>
+          <PaginatedResult items={filteredItems} />
+        </>
+      )}
     </div>
   );
 };
