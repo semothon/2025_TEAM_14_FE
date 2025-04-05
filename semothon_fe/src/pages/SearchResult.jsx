@@ -48,13 +48,14 @@ const SearchResult = () => {
         const res = await api.get("/api/search", {
           params: { keyword: query },
         });
+
         if (Array.isArray(res.data)) {
           const tagged = res.data.map((r) => ({
             ...r,
             cachedQuery: query,
           }));
           setResults(tagged);
-          sessionStorage.setItem("searchResults", JSON.stringify(res.data));
+          sessionStorage.setItem("searchResults", JSON.stringify(tagged));
         } else {
           console.warn("예상치 못한 응답:", res.data);
           setResults([]);
@@ -65,7 +66,9 @@ const SearchResult = () => {
       }
     };
 
-    fetchData();
+    if (shouldFetch) {
+      fetchData();
+    }
   }, [query]);
 
   const resultByCategory = useMemo(() => {

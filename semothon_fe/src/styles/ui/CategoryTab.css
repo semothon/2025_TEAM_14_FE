@@ -1,0 +1,16 @@
+.scrollable-category {
+  display: flex;
+  width: 996px;
+  gap: 12px;
+}
+
+.category-tab {
+  width: 120px;
+  height: 36px;
+  color: white;
+  font-size: 20px;
+  font-family: Pretendard;
+  border-radius: 20px;
+  border: none;
+  background: linear-gradient(131deg, #a40e17 -6.92%, #ff8400 98.4%);
+}

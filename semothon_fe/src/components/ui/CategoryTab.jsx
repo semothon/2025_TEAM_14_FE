@@ -23,7 +23,7 @@ const CategoryTab = ({ categories, onChange }) => {
       {sortedCategories.map((category, idx) => (
         <button
           key={category}
-          className={`custom-tab ${idx === activeIndex ? "active" : ""}`}
+          className={`category-tab ${idx === activeIndex ? "active" : ""}`}
           onClick={() => handleClick(idx)}
         >
           {category}
