@@ -33,13 +33,11 @@ const Header = ({ isLogin, setIsLogin }) => {
 
   return (
     <header>
-      {locationNow.pathname.startsWith("/search") && (
+      {(locationNow.pathname.startsWith("/search") || locationNow.pathname.startsWith("/recommend")) && (
   <div className="logo-button" onClick={() => navigate("/")}>
     <img src={KHUImage} alt="KHU 로고" className="khu-logo-img" />
   </div>
 )}
-
-      {/* 🔹 비로그인 상태의 메뉴 */}
       {!isLogin ? (
         <div className="guest-menu">
           <Link to="/signup">회원가입</Link>

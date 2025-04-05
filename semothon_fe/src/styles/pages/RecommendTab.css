@@ -1,0 +1,23 @@
+.recommend-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 48px 0;
+  }
+  
+  .recommend-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 996px;
+    height: 48px;
+    flex-shrink: 0;
+    border-radius: 20px;
+    background: var(--Sidebar-Point, linear-gradient(131deg, #FFB2A2 -6.92%, #FFE7D0 98.4%));
+    font-family: Pretendard;
+    font-size: 20px;
+    font-weight: 600;
+    color: black;
+    gap: 8px;
+  }
+  

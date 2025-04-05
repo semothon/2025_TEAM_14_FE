@@ -7,10 +7,9 @@ import SignUp from "./pages/SignUp";
 import { useState, useEffect } from "react";
 import api from "./axiosConfig.js";
 import SearchResult from "./pages/SearchResult.jsx";
+import RecommendTab from "./pages/RecommendTab.jsx";
 
 function App() {
-  const isLogin = false;
-  /*
   const [isLogin, setIsLogin] = useState(false);
 
   // 로그인 상태 확인
@@ -34,16 +33,17 @@ function App() {
       checkSession();
     }
   }, []);
-*/
+
   return (
     <div className="App">
       <Router>
-        <Header isLogin={isLogin} /*setIsLogin={setIsLogin}*/ />
+        <Header isLogin={isLogin} setIsLogin={setIsLogin} />
         <Routes>
           <Route path="/" element={<Main />} />
-          <Route path="/login" element={<SignIn /*setIsLogin={setIsLogin}*/ />} />
+          <Route path="/login" element={<SignIn setIsLogin={setIsLogin} />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/search-result" element={<SearchResult />} />
+          <Route path="/recommend" element={<RecommendTab />} />
         </Routes>
       </Router>
     </div>
@@ -51,3 +51,4 @@ function App() {
 }
 
 export default App;
+
